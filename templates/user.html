@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block metadata %}
+    <title>CpitHub - Home</title>
+{% endblock %}
+
+{% block content %}
+
+    <h1>Hey, {{ username.title() }}</h1>
+    <p>Welcome to CpitHub</p>
+    <br><br>
+
+    <div class="sidebar">
+        {% for repo_name in repos.keys() %}
+            <a href="/{{ username }}/{{ repo_name }}">
+                <img src="{{ url_for('static', filename='images/repo_icon.png') }}" class="repo-image" />
+                {{ repo_name }}
+            </a>
+        {% endfor %}
+    </div>
+
+    
+
+{% endblock %}
